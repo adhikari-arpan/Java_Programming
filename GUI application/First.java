@@ -1,36 +1,47 @@
-
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
 
-public class First extends JFrame implements ActionListener {
-
-    JTextField t;
-    JButton btn;
-
-    public First() {
-        setTitle("Java");
-        setSize(400, 500);
-        t = new JTextField();
-        t.setColumns(10);
-        btn = new JButton("Click");
-        add(t);
-        add(btn);
-        setLayout(new FlowLayout());
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        btn.addActionListener(this);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        t.setBackground(Color.BLACK);
-        Font fnt = new Font("Arial", Font.BOLD, 20);
-        t.setFont(fnt);
-        t.setForeground(Color.RED);
-    }
-
-    public static void main(String[] args) {
-        new First();
-    }
+public class First extends JFrame implements MouseListener, MouseMotionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JLabel first, second;
+	
+	public First() {
+		setSize(400,400);
+		first = new JLabel();
+		second = new JLabel();
+		add(first);
+		add(second);
+		setLayout(new FlowLayout());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+	
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		first.setText("In");
+	}
+	
+	public void mouseExited(MouseEvent e) {
+		first.setText("Out");
+	}
+	
+	public void mouseMoved(MouseEvent e) {
+		String loc = "X:" + e.getX() + "" + "Y:" + e.getY();
+		second.setText(loc);
+	}
+	
+	public void mousePressed(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {}
+	public void mouseDragged(MouseEvent e) {}
+	
+	public static void main(String[] args) {
+		new First();
+	}
 }
