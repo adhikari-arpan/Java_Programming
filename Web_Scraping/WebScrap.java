@@ -1,4 +1,3 @@
-package URLConnection;
 import java.io.*;
 import java.net.*;
 
