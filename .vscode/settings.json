@@ -1,9 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "Web_Scraping",
         "Network Programming",
         "Inheritance",
         "GUI application",
         "Exception Handling",
-        "Web_Scraping"
+        "Z_Practice"
     ]
 }
